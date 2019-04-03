@@ -1,1 +1,13 @@
 
+https://visibilityspots.org/dockerized-cloudflared-pi-hole.html
+
+visibilityspots/cloudflared
+https://hub.docker.com/r/visibilityspots/cloudflared
+
+docker run \
+--name cloudflared \
+--net host \  -- need this?
+-e DNS1=#.#.#.# \
+-e DNS2=#.#.#.# \
+--restart unless-stopped
+visibilityspots/cloudflared
