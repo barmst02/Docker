@@ -1,10 +1,9 @@
 
-plexinc/pms-docker
 
 https://github.com/plexinc/pms-docker
 
 #Bridge networking
-docker run \
+sudo docker run \
 -d \
 --name plex \
 -p 32400:32400/tcp \
@@ -16,12 +15,13 @@ docker run \
 -p 32412:32412/udp \
 -p 32413:32413/udp \
 -p 32414:32414/udp \
--e TZ="<timezone>" \
--e PLEX_CLAIM="<claimToken>" \
--e ADVERTISE_IP="http://<hostIPAddress>:32400/" \
--h <HOSTNAME> \
--v <path/to/plex/database>:/config \
--v <path/to/transcode/temp>:/transcode \
--v <path/to/media>:/data \
+-e TZ="US/Central" \
+-e PLEX_CLAIM="claim-xCtQpzoE9rqXAhsUb81g" \
+-e ADVERTISE_IP="http://192.168.2.168:32400/" \
+-h  192.168.2.168 \
+-v ~/.plex/config:/config \
+-v ~/.plex/transcode:/transcode \
+-v ~/media:/data \
+-v /mnt/media:/mnt/media \
 --restart unless-stopped \
 plexinc/pms-docker
