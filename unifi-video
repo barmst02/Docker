@@ -14,10 +14,11 @@ sudo docker run \
         -p 7446:7446 \
         -p 7447:7447 \
         -v /var/lib/unifi-video:/var/lib/unifi-video \
-        -v /mnt/unifi-video:/var/lib/unifi-video/videos \
+        -v /mnt/unifi-video/videos:/var/lib/unifi-video/videos \
         -e TZ="US/Central" \
         -e PUID=99 \
         -e PGID=100 \
-        -e DEBUG=1 \
+        -e DEBUG=0 \
+        --security-opt apparmor:unconfined \
         --restart unless-stopped \
         pducharme/unifi-video-controller
