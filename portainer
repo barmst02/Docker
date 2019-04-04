@@ -1,12 +1,12 @@
 # https://portainer.readthedocs.io/en/stable/deployment.html
 
 # Persistant, no SSL
-docker run 
+sudo docker run \
 -d \
 -p 9000:9000 \
 --name portainer \
 -v /var/run/docker.sock:/var/run/docker.sock \
--v /path/on/host/data:/data \
+-v  ~/.portainer/data:/data \
 --restart unless-stopped \
 portainer/portainer
 
