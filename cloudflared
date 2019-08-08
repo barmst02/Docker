@@ -1,21 +1,16 @@
 https://github.com/plexinc/pms-docker
 
-docker stop plex
-docker rm plex
-docker rmi plexinc/pms-docker
-docker pull plexinc/pms-docker:latest
-
 docker stop cloudflared
 docker rm cloudflared
 docker rmi visibilityspots/cloudflared
-docker pull visibilityspots/cloudflared:amd64
+# docker pull visibilityspots/cloudflared:amd64
 
-docker run 
-  --name cloudflared 
-  --rm 
-  --net host 
-  -p 53:53/tcp 
-  -p 53:53/udp
-  -e DNS1=1.1.1.1 
-  -e DNS2=#.#.#.# 
-  visibilityspots/cloudflared
+docker run  \
+  --name cloudflared  \
+  --net network  \
+  -p 53:53/tcp  \
+  -p 53:53/udp \
+  -e DNS1=1.1.1.1  \
+  -e DNS2=#.#.#.#  \
+  --restart unless-stopped \
+  visibilityspots/cloudflared:amd64
