@@ -7,7 +7,7 @@ docker rmi visibilityspots/cloudflared
 
 docker run  \
   --name cloudflared  \
-  --net network  \
+  -d  \
   -p 53:53/tcp  \
   -p 53:53/udp \
   -e DNS1=1.1.1.1  \
