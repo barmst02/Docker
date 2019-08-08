@@ -2,6 +2,12 @@
 
 https://github.com/plexinc/pms-docker
 
+docker stop plex
+docker rm plex
+docker rmi plexinc/pms-docker
+docker pull plexinc/pms-docker:latest
+
+
 #Bridge networking
 sudo docker run \
 -d \
@@ -24,4 +30,4 @@ sudo docker run \
 -v ~/media:/data \
 -v /mnt/media:/mnt/media \
 --restart unless-stopped \
-plexinc/pms-docker
+plexinc/pms-docker:latest
