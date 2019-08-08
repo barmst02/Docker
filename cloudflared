@@ -1,15 +1,15 @@
-https://github.com/plexinc/pms-docker
 
 docker stop cloudflared
 docker rm cloudflared
 # docker rmi flexo3001/cloudflared
-# docker pull visibilityspots/cloudflared:amd64
+# docker pull flexo3001/cloudflared
 
 docker run  \
   --name cloudflared  \
   -d  \
   --net host \
-  -e DNS1=doh.cleanbrowsing.org/doh/adult-filter/ \
+  -e DNS1=doh.cleanbrowsing.org/doh/custom-filter/f7fc:cf2f:a858:f616/ \
+  -e DNS2=doh.cleanbrowsing.org/doh/adult-filter/ \
   --restart unless-stopped \
   flexo3001/cloudflared
 
