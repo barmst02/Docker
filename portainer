@@ -1,5 +1,11 @@
 # https://portainer.readthedocs.io/en/stable/deployment.html
 
+docker stop portainer
+docker rm portainer
+docker rmi portainer/portainer
+docker pull portainer/portainer:latest
+
+
 # Persistant, no SSL
 sudo docker run \
 -d \
@@ -8,7 +14,7 @@ sudo docker run \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v  ~/.portainer/data:/data \
 --restart unless-stopped \
-portainer/portainer
+portainer/portainer:latest
 
 # SSL
 docker run \
