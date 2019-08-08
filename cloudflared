@@ -10,7 +10,6 @@ docker run  \
   -d  \
   --net host \
   -e DNS1=doh.cleanbrowsing.org/doh/adult-filter/ \
-  -e DNS2=8.8.8.8 \
   --restart unless-stopped \
   flexo3001/cloudflared
 
