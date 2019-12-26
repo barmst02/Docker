@@ -31,3 +31,19 @@ sudo docker run \
 -v /mnt/media:/mnt/media \
 --restart unless-stopped \
 plexinc/pms-docker:latest
+
+
+#Host networking
+sudo docker create \
+--net=host \
+--name plex \
+-e TZ="US/Central" \
+-e PLEX_CLAIM="claim-xCtQpzoE9rqXAhsUb81g" \
+-e ADVERTISE_IP="http://192.168.2.168:32400/" \
+-h  192.168.2.168 \
+-v ~/.plex/config:/config \
+-v ~/.plex/transcode:/transcode \
+-v ~/media:/data \
+-v /mnt/media:/mnt/media \
+--restart unless-stopped \
+plexinc/pms-docker:latest
